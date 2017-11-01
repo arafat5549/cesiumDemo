@@ -1,0 +1,282 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns:kml="http://earth.google.com/kml/2.2">
+    <Document id="featureCollection">
+		    <Style id="downArrowIcon">
+		      <IconStyle>
+		        <Icon>
+		          <href>../Images/ding.gif</href>
+		        </Icon>
+		      </IconStyle>
+		    </Style>
+
+        <Style id="defaultStyle">
+        	<LineStyle><width>1.5</width></LineStyle><PolyStyle><color>7d8a30c4</color></PolyStyle>
+        </Style>
+
+        <Style id="hezhangIcon">
+        	<IconStyle>
+		        <Icon>
+		          <href>../Images/dingl.gif</href>
+		        </Icon>
+		      </IconStyle>
+        </Style>
+        <Style id="wuranfxIcon">
+        	<IconStyle>
+		        <Icon>
+		          <href>../Images/enterprise_red.png</href>
+		        </Icon>
+		      </IconStyle>
+        </Style>
+        <Style id="yichuliwuranIcon">
+        	<IconStyle>
+		        <Icon>
+		          <href>../Images/enterprise.png</href>
+		        </Icon>
+		      </IconStyle>
+        </Style>
+
+        <Folder>
+            <Placemark>
+                <styleUrl>#downArrowIcon</styleUrl>
+                <name>王晓飞</name>
+                <label>pollute</label>
+                <ExtendedData>
+                    <Data name="objectid">
+                        <value>1</value>
+                    </Data>
+                    <Data name="id">
+                        <value>1</value>
+                    </Data>
+                    <Data name="stacked">
+                        <value>3</value>
+                    </Data>
+                    <Data name="angle">
+                        <value>0</value>
+                    </Data>
+                    <Data name="borough">
+                        <value>Bronx</value>
+                    </Data>
+                    <Data name="annoline1">
+                        <value></value>
+                    </Data>
+                    <Data name="annoline2a">
+                        <value></value>
+                    </Data>
+                    <Data name="annoline3">
+                        <value></value>
+                    </Data>
+                    <Data name="organ">
+                        <value>双流</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>双流</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        103.837345, 30.523843
+                    </coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <styleUrl>#downArrowIcon</styleUrl>
+                <name>林大胆</name>
+                <ExtendedData>
+                    <Data name="objectid">
+                        <value>1</value>
+                    </Data>
+                    <Data name="id">
+                        <value>1</value>
+                    </Data>
+                    <Data name="stacked">
+                        <value>3</value>
+                    </Data>
+                    <Data name="angle">
+                        <value>0</value>
+                    </Data>
+                    <Data name="borough">
+                        <value>Bronx</value>
+                    </Data>
+                    <Data name="annoline1">
+                        <value></value>
+                    </Data>
+                    <Data name="annoline2a">
+                        <value></value>
+                    </Data>
+                    <Data name="annoline3">
+                        <value></value>
+                    </Data>
+                    <Data name="annoline4">
+                        <value></value>
+                    </Data>
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        104.837345, 30.523843
+                    </coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <styleUrl>#downArrowIcon</styleUrl>
+                <name>张龙</name>
+                <ExtendedData>
+                    <Data name="编码">
+                        <value>1</value>
+                    </Data>
+                    
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        103.827345, 30.633843
+                    </coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <styleUrl>#hezhangIcon</styleUrl>
+                <name>张龙</name>
+                <ExtendedData>
+                    <Data name="编码">
+                        <value>1</value>
+                    </Data>
+                    
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        103.927345, 30.533843
+                    </coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <styleUrl>#wuranfxIcon</styleUrl>
+                <name>污染风险点：廖坑养猪场	</name>
+                <ExtendedData>
+                    <Data name="编码">
+                        <value>1</value>
+                    </Data>
+                    
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        103.927345, 30.733843
+                    </coordinates>
+                </Point>
+            </Placemark>
+            <Placemark>
+                <styleUrl>#yichuliwuranIcon</styleUrl>
+                <name>已处理污染：乐洪活性炭有限公司		</name>
+                <ExtendedData>
+                    <Data name="编码">
+                        <value>1</value>
+                    </Data>
+                    
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        104.527345, 30.733843
+                    </coordinates>
+                </Point>
+            </Placemark>
+
+            <Placemark>
+                <styleUrl>#yichuliwuranIcon</styleUrl>
+                <name>已处理污染：乐洪活性炭有限公司		</name>
+                <ExtendedData>
+                    <Data name="编码">
+                        <value>1</value>
+                    </Data>
+                    
+                    <Data name="organ">
+                        <value>青白江</value>
+                    </Data>
+                    <Data name="phone">
+                    	<value>15280575626</value>
+                    </Data>
+                    <Data name="river">
+                    	<value>青白江</value>
+                    </Data>
+                    <Data name="type">
+                    	<value>日常巡查</value>
+                    </Data>
+
+                </ExtendedData>
+                <Point>
+                    <coordinates>
+                        104.327345, 30.733843
+                    </coordinates>
+                </Point>
+            </Placemark>
+        </Folder>
+    </Document>
+</kml>

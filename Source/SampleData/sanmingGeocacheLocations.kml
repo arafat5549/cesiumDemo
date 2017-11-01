@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns:kml="http://earth.google.com/kml/2.2">
+  <Document id="featureCollection">
+<Style id="defaultStyle">
+  <LineStyle>
+    <width>1.5</width>
+  </LineStyle>
+  <PolyStyle>
+    <color>7d8a30c4</color>
+  </PolyStyle>
+</Style>
+  <Folder>
+    <Placemark>
+      <styleUrl>#defaultStyle</styleUrl>
+      <name>三明市XX砂厂</name>
+      <ExtendedData>
+        <Data name="objectid"><value>1</value></Data>
+        <Data name="id"><value>1</value></Data>
+        <Data name="stacked"><value>3</value></Data>
+       
+        <Data name="angle"><value>0</value></Data>
+        <Data name="borough"><value>Bronx</value></Data>
+       
+        <Data name="annoline1"><value></value></Data>
+        <Data name="annoline2a"><value></value></Data>
+        <Data name="annoline3"><value></value></Data>
+        <Data name="annoline4"><value></value></Data>
+      </ExtendedData>
+      <Point><coordinates>
+     117.535764,26.751827
+    </coordinates></Point>
+    </Placemark>
+
+  </Folder>  
+  </Document>
+  </kml>

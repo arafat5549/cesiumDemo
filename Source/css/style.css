@@ -1,0 +1,208 @@
+
+
+.sidenav {
+    background: #edf3f6;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.3);
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    height: 100%;
+    right: 0;
+    position: fixed;
+    transform: translate(330px,0);/*变换：平移（290px，0）*/
+    transition: transform .3s;
+    top: 0;
+   /* width: 300px;*/
+    z-index: 100;
+}
+
+.sidenav.show {
+    transform: translate(0,0)
+}
+
+.sidenav-brand {
+    background: #43acfb;
+    /*border-bottom: 1px solid #FF7043;*/
+    color: #FAFAFA;
+    font-size: 24px;
+    font-weight: 700;
+    height: 48px;
+  
+
+   /* line-height: 48px;*/
+    /*padding: 10px 0px 19px;*/
+}
+.sidenav-brand ul{
+ height: 36px;
+float: left;
+text-align: center;
+line-height: 30px;
+margin-top: 10px;
+margin-left:4px; 
+}
+.td-width{
+    width:60px; 
+    height: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.td-widthes{
+   width:30px!important; 
+   height: 30px;
+}
+.td-widtha{
+width:50px!important;
+}
+.sidenav-brand ul li{
+    font-size: 16px;
+    width:86px;
+    height: 30px;
+    float: left;
+    display: block;
+    border: 1px #69bdfc solid;
+    border-radius: 20px;
+    margin:0 3px; 
+}
+.sidenav-dropdown,.sidenav-header {
+    /*border-bottom: 1px solid #d0d5d8;*/
+    margin: 0
+}
+.sidenav-header {
+    background: 0 0;
+    color: #757575;
+    font-size: 19.2px;
+    line-height: 32px;
+    height: 52px;
+}
+.sidenav-header ul li{
+    float: left;
+}
+.sidenav-header .ahuiqu{
+width: 200px;
+height: 34px;
+margin-left:10px; 
+border: 1px solid #d5d8dc;
+}
+.sidenav-header .button_pic{
+/*background:url(../images/search.png) no-repeat;*/
+/*float: left;*/
+
+border:none;background: none;
+}
+.sidenav-header small {
+    display: block;
+    font-size: 14.4px;
+    line-height: 16px
+}
+.sidenav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0
+}
+.sidenav-menu li {
+    display: block;
+    position: relative;
+}
+.sidenav-menu a {
+    background: 0 0;
+    color: #333;
+    display: block;
+    line-height: 24px;
+    padding: 6px 0;
+    text-decoration: none;
+}
+.sidenav-menu a:hover {
+    /*background: #616161;*/
+}
+.sidenav-menu a.active,.sidenav-menu a.active .sidenav-dropdown-icon,.sidenav-menu a.active .sidenav-link-icon {
+    /*color: #FAFAFA*/
+}
+
+
+.sidenav-menu li:nth-child(even){
+    background: #e6ecef
+}
+
+.sidenav-dropdown li:nth-child(even) {
+    background: none
+}
+
+.sidenav-dropdown-icon,.sidenav-link-icon {
+    color: #757575;
+    position: absolute;
+    text-align: center;
+    top: 6px
+}
+.sidenav-dropdown .sidenav-dropdown-icon {
+    
+    top: 5px;
+    left: 34px;
+
+}
+.sidenav-dropdown-level3 li:hover{ background: #f9f8f8 }
+.sidenav-dropdown-level3 a{ margin-left: 7px; }
+.sidenav-dropdown-level3 a img{vertical-align: -5px;margin-right: 10px;}
+.sidenav-dropdown-level3 a .name-box{margin-right: 50px;}
+.sidenav-dropdown .sidenav-link-title { font-weight: normal;padding-left: 8px}
+.sidenav-link-icon {display: block;height: 24px;left: 24px;width: 24px;}
+
+.sidenav-link-title {font-size: 12px;display: block;padding: 0 16px 0 48px;color:#333;font-weight: normal;}
+.sidenav-dropdown {display: none;list-style: none;padding: 0;}
+.sidenav-dropdown a {font-size:12px;padding: 4px 0 4px 55px; font-weight: normal;}
+.sidenav-dropdown a:hover {/*background: #616161*/}
+
+.sidenav-dropdown li:first-child a {}
+.sidenav-dropdown-icon {display: none;height: 16px;left: 16px;width: 16px}
+.sidenav-dropdown-icon.show {display: block;}
+
+.sidenav-overlay {background: rgba(255,255,255,.8);display: none;height: 100%;left: 0;position: fixed;top: 0;width: 100%;z-index: 99}
+.sidenav-no-scroll {overflow: hidden!important}
+
+
+.show .toggle{margin-top: 80px;width: 28px;height: 50px;background:url(../images/mue.png) no-repeat/*float: right;*/}
+.material-icons{ color: #43acfb }
+.rivergrid-box,.targetsgrid-box{overflow-y: scroll;}
+.big_box{width: 330px;}
+.search-box .keyword{ width: 208px;height: 30px;border: 1px solid #d5d8dc; padding-left: 5px;}
+.keydsh{width: 85px;height: 30px;}
+.search-box .keyghf{width: 115px;height: 30px;margin: 10px 0 0 10px;border: 1px solid #d5d8dc; padding-left: 15px;}
+.sidenav-brand ul li{ cursor: pointer; }
+#content .dong {display:none;}
+.result-box p{ font-size: 12px; color: #333;line-height: 36px;text-indent: 20px;}
+.search-box{ position: relative;  }
+.search-box .button_pic, .refresh-btn{ vertical-align: -8px; /*position: absolute; top: 15px; right: 34px ; */cursor: pointer;}
+
+    /*color*/
+.online{color:#ff2828; font-size: 15px; padding-right: 4px;}
+.doing{color: #64adff;  font-size: 15px;}
+.done{color: #f7c525;  font-size: 15px;}
+.sign{color: #32b726; font-size: 15px;}
+
+
+.managestatus{overflow: hidden;padding: 0 21px;margin: 0 ;list-style: none;font-size: 12px;}
+.managestatus li{ height: 32px;color: #666666; line-height: 32px; font-weight: normal; float: left; width: 49.99%; font-size: 12px; }
+.managestatus li span {vertical-align: 2px; color: #666666;}
+
+
+.sidenav-dropdown-level3 .online, .sidenav-dropdown-level3 .doing, .sidenav-dropdown-level3 .done,.sidenav-dropdown-level3 .sign{margin-left: 10px;vertical-align:-4px;width: 15px;height: 15px;}
+.table_information{width: 310px;font-size: 12px;text-align: center;line-height:36px;}
+select{border: 1px solid #d3d9e6;margin: 10px 0 0 10px;width: 100px!important;height: 32px!important; color: #666;}
+
+.data-table .tab-con .hd p{ font-size: 12px; font-weight: normal; }
+.gridmenber-box .sidenav-menu:nth-child(even){ background: #f7f9fa}
+.sidenav-menu-box{ overflow-y: scroll; }
+.camera-list .name{ width: 100px; display: block; overflow:hidden; white-space: nowrap; }
+.data-table{ }
+.gkinfo-list{overflow:hidden;}
+.gkinfo-list li{float: left; width: 19.9% ;text-align: center; line-height: 30px;}
+.gkinfo-list li a{ font-size: 12px; font-weight: normal;  color: #666; text-decoration: none}
+.gkinfo-list .current{background: #60acfb}
+.gkinfo-list .current a{ color: #fff }
+
+.data-qj{ width: 169px; height: 31px; border: 1px solid #d5d8dc }
+.eventcount-box .title1{color: #666; font-size: 14px; font-weight: normal;}
+.eventcount-box .title2{padding: 0 10px; color: #666; font-size: 14px; }
+.eventcount-box p img{    vertical-align: -5px;}
+.event-num{font-size: 14px; color: #32b726; display: block; }
+
+.menu-list li{ white-space: nowrap; overflow:hidden; }

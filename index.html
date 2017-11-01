@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>成都/重庆</title>
+    <!-- The Cesium library. -->
+    <link rel="shortcut icon" href="../Source/Images/favicon.ico">
+    <script src="ThirdParty/Cesium/Cesium.js"></script>
+    <script src="Source/jquery-2.0.3.min.js"></script>
+    <link rel='stylesheet' href='http://fonts.googleapis.com/icon?family=Material+Icons' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="ThirdParty/Cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="Source/css/style.css" media="screen">
+    <!-- <style>@import url(ThirdParty/Cesium/Widgets/widgets.css);</style> -->
+    <link rel="stylesheet" href="index.css" media="screen">
+</head>
+
+<body>
+    <!-- A container for the Cesium Viewer to live in. -->
+    <div id="cesiumContainer"></div>
+    <div class="left_lan">
+        <div class="menu-wrap">
+            <div class="hd ">
+                <i class="icon2-menu fr toggle-button"></i>
+                <h2>综合信息</h2>
+            </div>
+            <div class="bd">
+                <ul class="info-list">
+                    <li id="nycView">
+                        <label>
+                            <input type="checkbox" name value="" checked class="riverinfo-btn">河流信息</label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="" value="2" class="gkinfo">概况信息</label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="" value="2" class="workinfo">工作情况</label>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="" value="" class="camerabtn">视频监控</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="right-nav">
+        <div class="data-table">
+            <div class="tab-hd">
+                <i class="icon2-menu fr right-button"></i>
+                <ul class="menu-list">
+                    <li class="current river-li">河流信息<i class="icon-current"></i></li>
+                    <!--  <li><i class="icon-current"></i>工作情况</li>
+                    <li><i class="icon-current"></i>视频监控</li>
+                </ul> -->
+            </div>
+            <div class="tab-bd">
+                
+            </div>
+        </div>
+    </div>
+    <div id="loadingIndicator" class="cover">
+        <div id="loadingIcon" class="loadingIndicator"></div>
+    </div>
+    <!-- <div class="info-box" style="position: absolute; right: 0; top: 200px; width: 300px; height: 500px; background: #fff; z-index: 10">
+</div> -->
+    <!-- Our application code. -->
+    <script src="Source/App.js"></script>
+    <script src="Source/js/index.js"></script>
+</body>
+
+</html>
