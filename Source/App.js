@@ -39,13 +39,13 @@
     //////////////////////////////////////////////////////////////////////////
 
     // Load STK World Terrain
-    viewer.terrainProvider = new Cesium.CesiumTerrainProvider({
-        url : 'https://assets.agi.com/stk-terrain/world',
-        requestWaterMask : true, // required for water effects
-        requestVertexNormals : false // required for terrain lighting
-    });
-    // Enable depth testing so things behind the terrain disappear.
-    viewer.scene.globe.depthTestAgainstTerrain = true;
+    // viewer.terrainProvider = new Cesium.CesiumTerrainProvider({
+    //     url : 'https://assets.agi.com/stk-terrain/world',
+    //     requestWaterMask : true, // required for water effects
+    //     requestVertexNormals : false // required for terrain lighting
+    // });
+    // // Enable depth testing so things behind the terrain disappear.
+    // viewer.scene.globe.depthTestAgainstTerrain = true;
 
     //////////////////////////////////////////////////////////////////////////
     // Configuring the Scene
@@ -53,11 +53,6 @@
 
     // Enable lighting based on sun/moon positions
     //viewer.scene.globe.enableLighting = true;
-
-    // Create an initial camera view
-    // var initialPosition = new Cesium.Cartesian3.fromDegrees(103.503985625, 29.0712038398437, 102031.082799425431);
-    // var initialPosition = new Cesium.Cartesian3.fromDegrees(104.503985625, 28.0712038398437, 202031.082799425431);
-
 
     var initialPosition = new Cesium.Cartesian3.fromDegrees(117.233350859375,24.5098488593751, 102031.082799425431);
     //new Cesium.Cartesian3.fromDegrees(-73.998114468289017509, 40.674512895646692812, 2631.082799425431);
@@ -105,38 +100,6 @@
     };
     // Load geocache points of interest from a KML file
     // Data from : http://catalog.opendata.city/dataset/pediacities-nyc-neighborhoods/resource/91778048-3c58-449c-a3f9-365ed203e914
-    // var geocachePromise = Cesium.KmlDataSource.load('./Source/SampleData/sampleGeocacheLocations.kml', kmlOptions);
-    // // Add geocache billboard entities to scene and style them
-    // geocachePromise.then(function(dataSource) {
-    //     // Add the new data as entities to the viewer
-    //     viewer.dataSources.add(dataSource);
-
-    //     // Get the array of entities
-    //     var geocacheEntities = dataSource.entities.values;
-
-    //     for (var i = 0; i < geocacheEntities.length; i++) {
-    //         var entity = geocacheEntities[i];
-    //         if (Cesium.defined(entity.billboard)) {
-    //             // Adjust the vertical origin so pins sit on terrain
-    //             entity.billboard.verticalOrigin = Cesium.VerticalOrigin.BOTTOM;
-    //             // Disable the labels to reduce clutter
-    //             entity.label = undefined;
-    //             // Add distance display condition
-    //             entity.billboard.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10.0, 20000.0);
-    //             // Compute latitude and longitude in degrees
-    //             var cartographicPosition = Cesium.Cartographic.fromCartesian(entity.position.getValue(Cesium.JulianDate.now()));
-    //             var latitude = Cesium.Math.toDegrees(cartographicPosition.latitude);
-    //             var longitude = Cesium.Math.toDegrees(cartographicPosition.longitude);
-    //             // Modify description
-    //             var description = '<table class="cesium-infoBox-defaultTable cesium-infoBox-defaultTable-lighter"><tbody>';
-    //             description += '<tr><th>' + "Latitude" + '</th><td>' + latitude + '</td></tr>';
-    //             description += '<tr><th>' + "Longitude" + '</th><td>' + longitude + '</td></tr>';
-    //             description += '</tbody></table>';
-    //             entity.description = description;
-    //         }
-    //     }
-    // });
-    // chengd
     var sanming_geocachePromise = Cesium.KmlDataSource.load('./Source/SampleData/sanmingGeocacheLocations.kml', kmlOptions);
     sanming_geocachePromise.then(function(dataSource) {
         // Add the new data as entities to the viewer
