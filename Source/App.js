@@ -32,8 +32,8 @@
         tileMatrixSetID: "GoogleMapsCompatible",
         show: false,
         credit : new Cesium.Credit('猎速地球内部预览版')
-
-    }))
+    }));
+    
     //////////////////////////////////////////////////////////////////////////
     // Loading Terrain
     //////////////////////////////////////////////////////////////////////////
@@ -172,117 +172,6 @@
     });
 
 
-    // var geojsonOptions = {
-    //     clampToGround : true
-    // };
-    // // Load neighborhood boundaries from a GeoJson file
-    // // Data from : https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas/cpf4-rkhq
-    // var neighborhoodsPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sampleNeighborhoods.geojson', geojsonOptions);
-    // // Save an new entity collection of neighborhood data
-    // var neighborhoods;
-    // neighborhoodsPromise.then(function(dataSource) {
-    //     // Add the new data as entities to the viewer
-    //     viewer.dataSources.add(dataSource);
-    //     neighborhoods = dataSource.entities;
-    //     // Get the array of entities
-    //     var neighborhoodEntities = dataSource.entities.values;
-    //     for (var i = 0; i < neighborhoodEntities.length; i++) {
-    //         var entity = neighborhoodEntities[i];
-    //         if (Cesium.defined(entity.polygon)) {
-    //             // Use kml neighborhood value as entity name
-    //             entity.name = entity.properties.neighborhood;
-    //             //console.log(" .name ="+ entity.name )
-    //             // Set the polygon material to a random, translucent color
-    //             entity.polygon.material = Cesium.Color.fromRandom({
-    //                 red : 0.1,
-    //                 maximumGreen : 0.5,
-    //                 minimumBlue : 0.5,
-    //                 alpha : 0.6
-    //             });
-    //             // Generate Polygon center
-    //             var polyPositions = entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-    //             var polyCenter = Cesium.BoundingSphere.fromPoints(polyPositions).center;
-    //             polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(polyCenter);
-    //             entity.position = polyCenter;
-    //             //console.log(entity.position);
-    //             // Generate labels
-    //             entity.label = {
-    //                 text : entity.name,
-    //                 showBackground : true,
-    //                 scale : 0.6,
-    //                 horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-    //                 verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-    //                 distanceDisplayCondition : new Cesium.DistanceDisplayCondition(10.0, 8000.0),
-    //                 disableDepthTestDistance : Number.POSITIVE_INFINITY
-    //             };  
-    //         }
-    //     }
-    // });
-
-    // 三明市区域
-    // var sanmingPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sanming.geojson', geojsonOptions);
-    // var sanming_neighborhoods;
-    // var sanming_hashSet = {};
-    // sanmingPromise.then(function(dataSource) {
-    //     // Add the new data as entities to the viewer
-    //     viewer.dataSources.add(dataSource);
-    //     sanming_neighborhoods = dataSource.entities;
-
-    //     // Get the array of entities
-    //     var sanming_neighborhoodEntities = dataSource.entities.values;
-
-    //     //console.log("len="+sanming_neighborhoodEntities.length)
-
-    //     for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
-    //         var sanming_entity = sanming_neighborhoodEntities[i];
-
-    //         if (Cesium.defined(sanming_entity.polygon)) {
-    //             // Use kml neighborhood value as entity name
-    //             sanming_entity.name = sanming_entity.properties.name; //entity.nproperties.neighborhood;
-    //             // Set the polygon material to a random, translucent color
-    //             sanming_entity.polygon.material = Cesium.Color.fromRandom({
-    //                 red : 0.4,
-    //                 maximumGreen : 0.6,
-    //                 minimumBlue : 0.6,
-    //                 alpha : 0.6
-    //             });
-    //             // Generate Polygon center
-    //             var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-    //             var sanming_polyCenter = Cesium.BoundingSphere.fromPoints(sanming_polyPositions).center;
-    //             if(sanming_entity.name=="明溪县" ){
-    //                sanming_polyCenter.x += 30000;   
-    //                sanming_polyCenter.y -= 38000;     
-    //             }
-    //             else if(sanming_entity.name=="尤溪县"){
-    //                sanming_polyCenter.x += 12000;   
-    //                sanming_polyCenter.y -= 68000;     
-    //             }
-    //             sanming_polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(sanming_polyCenter);
-    //             sanming_entity.position = sanming_polyCenter;
-
-
-    //             // console.log(sanming_entity.polygon.distanceDisplayCondition);    
-    //             sanming_entity.polygon.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10, 800000);
-
-    //             // Generate labels
-    //             if(sanming_hashSet[sanming_entity.name] != 1){
-    //                 sanming_entity.label = {
-    //                     text : sanming_entity.name,
-    //                     showBackground : true,
-    //                     scale : 0.6,
-    //                     horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-    //                     verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-    //                     distanceDisplayCondition : new Cesium.DistanceDisplayCondition(100.0, 800000),
-    //                     disableDepthTestDistance : Number.POSITIVE_INFINITY
-    //                 };
-    //             }
-
-    //             sanming_hashSet[sanming_entity.name] = 1;   
-    //         }
-    //     }
-        
-    // });
-
     //获取中心点
      function parseGeoJson(filepath){
          var geojsonOptions = { clampToGround : true };
@@ -361,41 +250,41 @@
     //console.log(itemSet);
 
     // Load a drone flight path from a CZML file
-    var dronePromise = Cesium.CzmlDataSource.load('./Source/SampleData/SampleFlight.czml');
-    // Save a new drone model entity
-    var drone;
-    dronePromise.then(function(dataSource) {
-        viewer.dataSources.add(dataSource);
-        drone = dataSource.entities.values[0];
-        // Attach a 3D model
-        drone.model = {
-            uri : './Source/SampleData/Models/CesiumDrone.gltf',
-            minimumPixelSize : 128,
-            maximumScale : 2000
-        };
-        // Add computed orientation based on sampled positions
-        drone.orientation = new Cesium.VelocityOrientationProperty(drone.position);
+    // var dronePromise = Cesium.CzmlDataSource.load('./Source/SampleData/SampleFlight.czml');
+    // // Save a new drone model entity
+    // var drone;
+    // dronePromise.then(function(dataSource) {
+    //     viewer.dataSources.add(dataSource);
+    //     drone = dataSource.entities.values[0];
+    //     // Attach a 3D model
+    //     drone.model = {
+    //         uri : './Source/SampleData/Models/CesiumDrone.gltf',
+    //         minimumPixelSize : 128,
+    //         maximumScale : 2000
+    //     };
+    //     // Add computed orientation based on sampled positions
+    //     drone.orientation = new Cesium.VelocityOrientationProperty(drone.position);
 
-        // Smooth path interpolation
-        drone.position.setInterpolationOptions({
-            interpolationAlgorithm : Cesium.HermitePolynomialApproximation,
-            interpolationDegree : 2
-        });
-        drone.viewFrom = new Cesium.Cartesian3(-30, 0, 0);
-    });
+    //     // Smooth path interpolation
+    //     drone.position.setInterpolationOptions({
+    //         interpolationAlgorithm : Cesium.HermitePolynomialApproximation,
+    //         interpolationDegree : 2
+    //     });
+    //     drone.viewFrom = new Cesium.Cartesian3(-30, 0, 0);
+    // });
 
     //////////////////////////////////////////////////////////////////////////
     // Load 3D Tileset
     //////////////////////////////////////////////////////////////////////////
     
     // Load the NYC buildings tileset
-    var city = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-        url: 'https://beta.cesium.com/api/assets/1461?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYWJmM2MzNS02OWM5LTQ3OWItYjEyYS0xZmNlODM5ZDNkMTYiLCJpZCI6NDQsImFzc2V0cyI6WzE0NjFdLCJpYXQiOjE0OTkyNjQ3NDN9.vuR75SqPDKcggvUrG_vpx0Av02jdiAxnnB1fNf-9f7s',
-        maximumScreenSpaceError: 16 // default value
-    }));
+    // var city = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+    //     url: 'https://beta.cesium.com/api/assets/1461?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJkYWJmM2MzNS02OWM5LTQ3OWItYjEyYS0xZmNlODM5ZDNkMTYiLCJpZCI6NDQsImFzc2V0cyI6WzE0NjFdLCJpYXQiOjE0OTkyNjQ3NDN9.vuR75SqPDKcggvUrG_vpx0Av02jdiAxnnB1fNf-9f7s',
+    //     maximumScreenSpaceError: 16 // default value
+    // }));
 
-    // Adjust the tileset height so it's not floating above terrain
-    var heightOffset = -32;
+    // // Adjust the tileset height so it's not floating above terrain
+    // var heightOffset = -32;
     // city.readyPromise.then(function(tileset) {
     //     // Position tileset
     //     var boundingSphere = tileset.boundingSphere;
@@ -411,35 +300,35 @@
     //////////////////////////////////////////////////////////////////////////
 
     // Define a white, opaque building style
-    var defaultStyle = new Cesium.Cesium3DTileStyle({
-        color : "color('white')",
-        show : true
-    });
+   //  var defaultStyle = new Cesium.Cesium3DTileStyle({
+   //      color : "color('white')",
+   //      show : true
+   //  });
 
-    // Set the tileset style to default
-    city.style = defaultStyle;
+   //  // Set the tileset style to default
+   //  city.style = defaultStyle;
 
-    // Define a white, transparent building style
-    var transparentStyle = new Cesium.Cesium3DTileStyle({
-        color : "color('white', 0.3)",
-        show : true
-    });
+   //  // Define a white, transparent building style
+   //  var transparentStyle = new Cesium.Cesium3DTileStyle({
+   //      color : "color('white', 0.3)",
+   //      show : true
+   //  });
 
-   // Define a style in which buildings are colored by height
-    var heightStyle = new Cesium.Cesium3DTileStyle({
-        color : {
-            conditions : [
-                ["${height} >= 300", "rgba(45, 0, 75, 0.5)"],
-                ["${height} >= 200", "rgb(102, 71, 151)"],
-                ["${height} >= 100", "rgb(170, 162, 204)"],
-                ["${height} >= 50", "rgb(224, 226, 238)"],
-                ["${height} >= 25", "rgb(252, 230, 200)"],
-                ["${height} >= 10", "rgb(248, 176, 87)"],
-                ["${height} >= 5", "rgb(198, 106, 11)"],
-                ["true", "rgb(127, 59, 8)"]
-            ]
-        }
-    });
+   // // Define a style in which buildings are colored by height
+   //  var heightStyle = new Cesium.Cesium3DTileStyle({
+   //      color : {
+   //          conditions : [
+   //              ["${height} >= 300", "rgba(45, 0, 75, 0.5)"],
+   //              ["${height} >= 200", "rgb(102, 71, 151)"],
+   //              ["${height} >= 100", "rgb(170, 162, 204)"],
+   //              ["${height} >= 50", "rgb(224, 226, 238)"],
+   //              ["${height} >= 25", "rgb(252, 230, 200)"],
+   //              ["${height} >= 10", "rgb(248, 176, 87)"],
+   //              ["${height} >= 5", "rgb(198, 106, 11)"],
+   //              ["true", "rgb(127, 59, 8)"]
+   //          ]
+   //      }
+   //  });
 
     // var tileStyle = document.getElementById('tileStyle');
     // function set3DTileStyle() {
@@ -521,11 +410,11 @@
     // });
 
     // Finally, wait for the initial city to be ready before removing the loading indicator.
-    var loadingIndicator = document.getElementById('loadingIndicator');
-    loadingIndicator.style.display = 'block';
-    city.readyPromise.then(function () {
-        loadingIndicator.style.display = 'none';
-    });
+    // var loadingIndicator = document.getElementById('loadingIndicator');
+    // loadingIndicator.style.display = 'block';
+    // city.readyPromise.then(function () {
+    //     loadingIndicator.style.display = 'none';
+    // });
       //经纬度坐标转为笛卡尔空间直角坐标系(即ＧＰＳ卫星返回的坐标)
     function cartographicToCartesian(){
         var ellipsoid = viewer.scene.globe.ellipsoid;
