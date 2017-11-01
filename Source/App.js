@@ -14,10 +14,6 @@
     });
 
 
-
-   
-
-
     //////////////////////////////////////////////////////////////////////////
     // Loading Imagery
     //////////////////////////////////////////////////////////////////////////
@@ -176,126 +172,193 @@
     });
 
 
-    var geojsonOptions = {
-        clampToGround : true
-    };
-    // Load neighborhood boundaries from a GeoJson file
-    // Data from : https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas/cpf4-rkhq
-    var neighborhoodsPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sampleNeighborhoods.geojson', geojsonOptions);
-
-    // Save an new entity collection of neighborhood data
-    var neighborhoods;
-    neighborhoodsPromise.then(function(dataSource) {
-        // Add the new data as entities to the viewer
-        viewer.dataSources.add(dataSource);
-        neighborhoods = dataSource.entities;
-
-        // Get the array of entities
-        var neighborhoodEntities = dataSource.entities.values;
-        for (var i = 0; i < neighborhoodEntities.length; i++) {
-            var entity = neighborhoodEntities[i];
-
-            if (Cesium.defined(entity.polygon)) {
-                // Use kml neighborhood value as entity name
-                entity.name = entity.properties.neighborhood;
-                //console.log(" .name ="+ entity.name )
-                // Set the polygon material to a random, translucent color
-                entity.polygon.material = Cesium.Color.fromRandom({
-                    red : 0.1,
-                    maximumGreen : 0.5,
-                    minimumBlue : 0.5,
-                    alpha : 0.6
-                });
-                // Generate Polygon center
-                var polyPositions = entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-                var polyCenter = Cesium.BoundingSphere.fromPoints(polyPositions).center;
-                polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(polyCenter);
-                entity.position = polyCenter;
-                //console.log(entity.position);
-                // Generate labels
-                entity.label = {
-                    text : entity.name,
-                    showBackground : true,
-                    scale : 0.6,
-                    horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-                    verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-                    distanceDisplayCondition : new Cesium.DistanceDisplayCondition(10.0, 8000.0),
-                    disableDepthTestDistance : Number.POSITIVE_INFINITY
-                };  
-            }
-        }
-    });
+    // var geojsonOptions = {
+    //     clampToGround : true
+    // };
+    // // Load neighborhood boundaries from a GeoJson file
+    // // Data from : https://data.cityofnewyork.us/City-Government/Neighborhood-Tabulation-Areas/cpf4-rkhq
+    // var neighborhoodsPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sampleNeighborhoods.geojson', geojsonOptions);
+    // // Save an new entity collection of neighborhood data
+    // var neighborhoods;
+    // neighborhoodsPromise.then(function(dataSource) {
+    //     // Add the new data as entities to the viewer
+    //     viewer.dataSources.add(dataSource);
+    //     neighborhoods = dataSource.entities;
+    //     // Get the array of entities
+    //     var neighborhoodEntities = dataSource.entities.values;
+    //     for (var i = 0; i < neighborhoodEntities.length; i++) {
+    //         var entity = neighborhoodEntities[i];
+    //         if (Cesium.defined(entity.polygon)) {
+    //             // Use kml neighborhood value as entity name
+    //             entity.name = entity.properties.neighborhood;
+    //             //console.log(" .name ="+ entity.name )
+    //             // Set the polygon material to a random, translucent color
+    //             entity.polygon.material = Cesium.Color.fromRandom({
+    //                 red : 0.1,
+    //                 maximumGreen : 0.5,
+    //                 minimumBlue : 0.5,
+    //                 alpha : 0.6
+    //             });
+    //             // Generate Polygon center
+    //             var polyPositions = entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
+    //             var polyCenter = Cesium.BoundingSphere.fromPoints(polyPositions).center;
+    //             polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(polyCenter);
+    //             entity.position = polyCenter;
+    //             //console.log(entity.position);
+    //             // Generate labels
+    //             entity.label = {
+    //                 text : entity.name,
+    //                 showBackground : true,
+    //                 scale : 0.6,
+    //                 horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
+    //                 verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
+    //                 distanceDisplayCondition : new Cesium.DistanceDisplayCondition(10.0, 8000.0),
+    //                 disableDepthTestDistance : Number.POSITIVE_INFINITY
+    //             };  
+    //         }
+    //     }
+    // });
 
     // 三明市区域
-    var sanmingPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sanming.geojson', geojsonOptions);
-    var sanming_neighborhoods;
-    var sanming_hashSet = {};
-    sanmingPromise.then(function(dataSource) {
-        // Add the new data as entities to the viewer
-        viewer.dataSources.add(dataSource);
-        sanming_neighborhoods = dataSource.entities;
+    // var sanmingPromise = Cesium.GeoJsonDataSource.load('./Source/SampleData/sanming.geojson', geojsonOptions);
+    // var sanming_neighborhoods;
+    // var sanming_hashSet = {};
+    // sanmingPromise.then(function(dataSource) {
+    //     // Add the new data as entities to the viewer
+    //     viewer.dataSources.add(dataSource);
+    //     sanming_neighborhoods = dataSource.entities;
 
-        // Get the array of entities
-        var sanming_neighborhoodEntities = dataSource.entities.values;
+    //     // Get the array of entities
+    //     var sanming_neighborhoodEntities = dataSource.entities.values;
 
-        //console.log("len="+sanming_neighborhoodEntities.length)
+    //     //console.log("len="+sanming_neighborhoodEntities.length)
 
-        for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
-            var sanming_entity = sanming_neighborhoodEntities[i];
+    //     for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
+    //         var sanming_entity = sanming_neighborhoodEntities[i];
 
-            if (Cesium.defined(sanming_entity.polygon)) {
-                // Use kml neighborhood value as entity name
-                sanming_entity.name = sanming_entity.properties.name; //entity.nproperties.neighborhood;
-                // Set the polygon material to a random, translucent color
-                sanming_entity.polygon.material = Cesium.Color.fromRandom({
-                    red : 0.4,
-                    maximumGreen : 0.6,
-                    minimumBlue : 0.6,
-                    alpha : 0.6
-                });
-                // Generate Polygon center
-                var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-                var sanming_polyCenter = Cesium.BoundingSphere.fromPoints(sanming_polyPositions).center;
-                if(sanming_entity.name=="明溪县" ){
-                   sanming_polyCenter.x += 30000;   
-                   sanming_polyCenter.y -= 38000;     
-                }
-                else if(sanming_entity.name=="尤溪县"){
-                   sanming_polyCenter.x += 12000;   
-                   sanming_polyCenter.y -= 68000;     
-                }
-                sanming_polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(sanming_polyCenter);
-                sanming_entity.position = sanming_polyCenter;
+    //         if (Cesium.defined(sanming_entity.polygon)) {
+    //             // Use kml neighborhood value as entity name
+    //             sanming_entity.name = sanming_entity.properties.name; //entity.nproperties.neighborhood;
+    //             // Set the polygon material to a random, translucent color
+    //             sanming_entity.polygon.material = Cesium.Color.fromRandom({
+    //                 red : 0.4,
+    //                 maximumGreen : 0.6,
+    //                 minimumBlue : 0.6,
+    //                 alpha : 0.6
+    //             });
+    //             // Generate Polygon center
+    //             var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
+    //             var sanming_polyCenter = Cesium.BoundingSphere.fromPoints(sanming_polyPositions).center;
+    //             if(sanming_entity.name=="明溪县" ){
+    //                sanming_polyCenter.x += 30000;   
+    //                sanming_polyCenter.y -= 38000;     
+    //             }
+    //             else if(sanming_entity.name=="尤溪县"){
+    //                sanming_polyCenter.x += 12000;   
+    //                sanming_polyCenter.y -= 68000;     
+    //             }
+    //             sanming_polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(sanming_polyCenter);
+    //             sanming_entity.position = sanming_polyCenter;
 
 
-                // console.log(sanming_entity.polygon.distanceDisplayCondition);    
-                sanming_entity.polygon.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10, 800000);
+    //             // console.log(sanming_entity.polygon.distanceDisplayCondition);    
+    //             sanming_entity.polygon.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10, 800000);
 
-                // Generate labels
-                if(sanming_hashSet[sanming_entity.name] != 1){
-                    sanming_entity.label = {
-                        text : sanming_entity.name,
-                        showBackground : true,
-                        scale : 0.6,
-                        horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-                        verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-                        distanceDisplayCondition : new Cesium.DistanceDisplayCondition(100.0, 800000),
-                        disableDepthTestDistance : Number.POSITIVE_INFINITY
-                    };
-                }
+    //             // Generate labels
+    //             if(sanming_hashSet[sanming_entity.name] != 1){
+    //                 sanming_entity.label = {
+    //                     text : sanming_entity.name,
+    //                     showBackground : true,
+    //                     scale : 0.6,
+    //                     horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
+    //                     verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
+    //                     distanceDisplayCondition : new Cesium.DistanceDisplayCondition(100.0, 800000),
+    //                     disableDepthTestDistance : Number.POSITIVE_INFINITY
+    //                 };
+    //             }
 
-                sanming_hashSet[sanming_entity.name] = 1;   
-            }
-        }
+    //             sanming_hashSet[sanming_entity.name] = 1;   
+    //         }
+    //     }
         
-    });
+    // });
 
+    //获取中心点
+     function parseGeoJson(filepath){
+         var geojsonOptions = { clampToGround : true };
+         var promise = Cesium.GeoJsonDataSource.load(filepath, geojsonOptions);
+         var sanming_map = {};
+         var itemSet = {};
 
-    
+         promise.then(function(dataSource) {
+               viewer.dataSources.add(dataSource); 
+               var entities = dataSource.entities.values;
+               //console.log(entities);
+               for (var i = 0; i < entities.length; i++) {
+                    var entity = entities[i];
+                    if (Cesium.defined(entity.polygon)) {
+                        entity.name = entity.properties.name; 
+                        if(sanming_map[entity.name]){
+                            sanming_map[entity.name].push(entity);
+                        }
+                        else{
+                            sanming_map[entity.name] = [];
+                            sanming_map[entity.name].push(entity);
 
+                        }
+                    }
+               }
+               for (var n in sanming_map) {
+                    var items = sanming_map[n];
+                    if(items.length > 0){
+                       var myPolyCenter = new Cesium.Cartesian3(0,0,0);
+                       for (var i = 0; i < items.length; i++){
+                            var item = items[i];
+                            var polyPositions = item.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
+                            var polyCenter = Cesium.BoundingSphere.fromPoints(polyPositions).center;
+                            polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(polyCenter);
+                            //console.log(items.length+","+polyCenter);
 
+                            myPolyCenter.x += polyCenter.x;
+                            myPolyCenter.y += polyCenter.y;
+                            myPolyCenter.z += polyCenter.z;
+                        }
+                        myPolyCenter.x /= items.length;
+                        myPolyCenter.y /= items.length;
+                        myPolyCenter.z /= items.length;
+                        items[0].position = myPolyCenter;
+                        itemSet[n] = items[0];
 
+                    }
+               }
+               //console.log(itemSet);
+               for (var n in itemSet) {
+                       var sitem = itemSet[n];
+                       sitem.polygon.material = Cesium.Color.fromRandom({
+                                    red : 0.1,
+                                    maximumGreen : 0.7,
+                                    minimumBlue : 0.5,
+                                    alpha : 0.7
+                        });
+                        sitem.polygon.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10, 800000);
+                        sitem.label = {
+                            text : sitem.name,
+                            showBackground : true,
+                            scale : 0.6,
+                            horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
+                            verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
+                            distanceDisplayCondition : new Cesium.DistanceDisplayCondition(100.0, 800000),
+                            disableDepthTestDistance : Number.POSITIVE_INFINITY
+                        }; 
+               }
+               //console.log(itemSet);
+         });
 
+         return itemSet;
+     }
+
+    var itemSet = parseGeoJson('./Source/SampleData/sanming.geojson');
+    //console.log(itemSet);
 
     // Load a drone flight path from a CZML file
     var dronePromise = Cesium.CzmlDataSource.load('./Source/SampleData/SampleFlight.czml');
@@ -395,7 +458,7 @@
     // Custom mouse interaction for highlighting and selecting
     //////////////////////////////////////////////////////////////////////////
 
-    // If the mouse is over a point of interest, change the entity billboard scale and color
+    //鼠标和地图交互事件
     var previousPickedEntity;
     var handler = viewer.screenSpaceEventHandler;
     handler.setInputAction(function (movement) {
@@ -422,15 +485,14 @@
     // var droneModeElement = document.getElementById('droneMode');
 
     // Create a follow camera by tracking the drone entity
-    function setViewMode() {
-        if (droneModeElement.checked) {
-            viewer.trackedEntity = drone;
-        } else {
-            viewer.trackedEntity = undefined;
-            viewer.scene.camera.flyTo(homeCameraView);
-        }
-    }
-
+    // function setViewMode() {
+    //     if (droneModeElement.checked) {
+    //         viewer.trackedEntity = drone;
+    //     } else {
+    //         viewer.trackedEntity = undefined;
+    //         viewer.scene.camera.flyTo(homeCameraView);
+    //     }
+    // }
     // freeModeElement.addEventListener('change', setViewMode);
     // droneModeElement.addEventListener('change', setViewMode);
 
@@ -464,80 +526,6 @@
     city.readyPromise.then(function () {
         loadingIndicator.style.display = 'none';
     });
-
-//获取中心点
-     function parseGeoJson(filepath){
-         var geojsonOptions = { clampToGround : true };
-         var promise = Cesium.GeoJsonDataSource.load(filepath, geojsonOptions);
-         var sanming_map = {};
-         promise.then(function(dataSource) {
-               viewer.dataSources.add(dataSource); 
-               var entities = dataSource.entities.values;
-               //console.log(entities);
-               for (var i = 0; i < entities.length; i++) {
-                    var entity = entities[i];
-                    if (Cesium.defined(entity.polygon)) {
-                        entity.name = entity.properties.name; 
-                        if(sanming_map[entity.name]){
-                            sanming_map[entity.name].push(entity);
-                        }
-                        else{
-                            sanming_map[entity.name] = [];
-                            sanming_map[entity.name].push(entity);
-
-                        }
-                    }
-               }
-
-               var itemSet = {};
-               for (var n in sanming_map) {
-                    var items = sanming_map[n];
-                    if(items.length > 0){
-                       var myPolyCenter = new Cesium.Cartesian3(0,0,0);
-                       for (var i = 0; i < items.length; i++){
-                            var item = items[i];
-                            var polyPositions = item.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-                            var polyCenter = Cesium.BoundingSphere.fromPoints(polyPositions).center;
-                            polyCenter = Cesium.Ellipsoid.WGS84.scaleToGeodeticSurface(polyCenter);
-                            //console.log(items.length+","+polyCenter);
-
-                            myPolyCenter.x += polyCenter.x;
-                            myPolyCenter.y += polyCenter.y;
-                            myPolyCenter.z += polyCenter.z;
-                        }
-                        myPolyCenter.x /= items.length;
-                        myPolyCenter.y /= items.length;
-                        myPolyCenter.z /= items.length;
-                        items[0].position = myPolyCenter;
-                        itemSet[n] = items[0];
-
-                    }
-               }
-               console.log(itemSet);
-               for (var n in itemSet) {
-                       var sitem = itemSet[n];
-                       sitem.polygon.material = Cesium.Color.fromRandom({
-                                    red : 0.1,
-                                    maximumGreen : 0.7,
-                                    minimumBlue : 0.5,
-                                    alpha : 0.7
-                        });
-                        sitem.polygon.distanceDisplayCondition = new Cesium.DistanceDisplayCondition(10, 800000);
-                        sitem.label = {
-                            text : sitem.name,
-                            showBackground : true,
-                            scale : 0.6,
-                            horizontalOrigin : Cesium.HorizontalOrigin.CENTER,
-                            verticalOrigin : Cesium.VerticalOrigin.BOTTOM,
-                            distanceDisplayCondition : new Cesium.DistanceDisplayCondition(100.0, 800000),
-                            disableDepthTestDistance : Number.POSITIVE_INFINITY
-                        }; 
-               }
-               console.log(itemSet);
-         });
-        
-     }
-    
       //经纬度坐标转为笛卡尔空间直角坐标系(即ＧＰＳ卫星返回的坐标)
     function cartographicToCartesian(){
         var ellipsoid = viewer.scene.globe.ellipsoid;
@@ -554,17 +542,17 @@
         var latitude = Cesium.Math.toDegrees(cartographic.latitude);
         var longitude = Cesium.Math.toDegrees(cartographic.longitude);
         var alt = cartographic.height;
-         console.log(latitude+","+longitude+","+alt);
+        console.log(latitude+","+longitude+","+alt);
         var x = {
             latitude: latitude,
-            longitude:longitude
+            longitude:longitude,
+            altitude : alt
         }
-        return x
-        
+        return x;
         // console.log(cartographic);
     }
 
-          //摄像头移动
+    //摄像头移动
     function moveCamera(
         bycPosition = new Cesium.Cartesian3.fromDegrees(-73.998114468289017509, 40.674512895646692812, 2631.082799425431),
         nycOrientation = new Cesium.HeadingPitchRoll.fromDegrees(7.1077496389876024807, -31.987223091598949054, 0.025883251314954971306)
@@ -590,34 +578,48 @@
     };
 
     $('.data-table').on('click', '.gkinfo-list a', function(){
-        var name = $(this).text()
-         sanmingPromise.then(function(dataSource) {
-            var sanming_neighborhoodEntities = dataSource.entities.values;
-            for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
-                var sanming_entity = sanming_neighborhoodEntities[i];
-                var city_name= sanming_entity.name._value;
-                // console.log(sanming_entity.polygon)
-                if (Cesium.defined(sanming_entity.polygon) && name==city_name) {
-                    // console.log(sanming_entity)
-                    var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-                    console.log(sanming_polyPositions.length)
-                    var x  =cartesianToCartographic(sanming_polyPositions[0])
+         var name = $(this).text();
+         for (var i in itemSet) 
+         {
+            
+             if(i == name)
+             {
+                   //console.log(i,itemSet[i].position.getValue(Cesium.JulianDate.now()));
+                    var x  = cartesianToCartographic(itemSet[i].position.getValue(Cesium.JulianDate.now()));
+                    //console.log(x);
+                    moveCamera(
+                          new Cesium.Cartesian3.fromDegrees(x.longitude,x.latitude, 2631.082799425431) //52631.082799425431
+                    );
+             }
+         }
+         // sanmingPromise.then(function(dataSource) 
+         // {
+         //    var sanming_neighborhoodEntities = dataSource.entities.values;
+         //    for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
+         //        var sanming_entity = sanming_neighborhoodEntities[i];
+         //        var city_name= sanming_entity.name._value;
+         //        // console.log(sanming_entity.polygon)
+         //        if (Cesium.defined(sanming_entity.polygon) && name==city_name) {
+         //            // console.log(sanming_entity)
+         //            var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
+         //            console.log(sanming_polyPositions.length)
+         //            var x  =cartesianToCartographic(sanming_polyPositions[0])
 
                    
-                    // var p = Cesium.Cartesian3.fromArray(sanming_polyPositions);
-                                        // console.log(p)
+         //            // var p = Cesium.Cartesian3.fromArray(sanming_polyPositions);
+         //            // console.log(p)
 
-console.log(x.longitude, y.latitude)
-                    moveCamera(new Cesium.Cartesian3.fromDegrees(x.longitude,y.latitude, 52631.082799425431) );
+         //            console.log("demo=",x.longitude, x.latitude,x);
+         //            moveCamera(
+         //                 new Cesium.Cartesian3.fromDegrees(x.longitude,x.latitude, 2631.082799425431) //52631.082799425431
+         //                ,new Cesium.HeadingPitchRoll.fromDegrees(7.1077496389876024807, -31.987223091598949054, 0.025883251314954971306));
 
-                }
+         //        }
 
-            }
+         //    }
 
+         // })
 
-
-         })
-
-    })
+    });
 
 }());
