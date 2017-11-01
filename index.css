@@ -68,14 +68,14 @@ button.cesium-infoBox-camera {display: none;}
 
 
 .fr{float: right;}
-.icon2-menu {    margin-top: 13px;cursor: pointer; width: 9px; height: 10px; display: inline-block; background: url(../Source/Images/map-icon.png); }
-.menu-wrap { left: 20px; border-radius: 5px; background-color: #fff;box-shadow: 4px 2px 15px 1px #c4e3ee;position: fixed;top:58px;width: 240px;overflow: auto;transition: .25s;z-index: 10;}
+.icon2-menu {    margin-top: 15px;cursor: pointer; width: 9px; height: 10px; display: inline-block; background: url(../Source/Images/map-icon.png); }
+.menu-wrap { left: 20px; border-radius: 5px; background-color: #fff;box-shadow:2px 2px 6px rgba(0,0,0,.3);position: fixed;top:58px;width: 140px;overflow: auto;transition: .25s;z-index: 10;}
 .menu-show .bd{display: none}
 .menu-show{width: 100px;}
 .menu-wrap .hd{ height: 40px; background: #60acfb; line-height: 40px; padding: 0 16px; }
-.menu-wrap h2{ margin: 0; padding: 0; color: #fff; font-size: 16px; }
+.menu-wrap h2{ margin: 0; padding: 0; color: #fff; font-size: 14px; }
 .menu-wrap .bd  p{color: #666;font-size: 20px;line-height: 50px;}
-.menu-show .hd{ padding: 0 5px }
+.menu-show .hd{ padding: 0 10px }
 .menu-show .icon2-menu,.nav-show .icon2-menu{ background-position: -14px 0 }
 ul{ margin: 0; padding: 0 ; list-style: none; }
 .button-open {}
@@ -100,7 +100,7 @@ ul{ margin: 0; padding: 0 ; list-style: none; }
 
 .data-table .tab-hd{background: #43acfb;overflow: hidden;    color: #FAFAFA;height: 40px; }
 .menu-list{overflow: hidden; height: 40px;line-height: 40px; padding: 0; width: 93%;}
-.menu-list li{font-size: 16px;color: #c9e0fd; cursor: pointer;float: left; padding: 0 5px;  font-weight: normal; position: relative;}
+.menu-list li{font-size: 14px;color: #c9e0fd; cursor: pointer;float: left; padding: 0 5px;  font-weight: normal; position: relative;}
 .menu-list li.current {color: #fff; background: #3784c8; font-weight: bold;}
 .menu-list .current .icon-current{position: absolute;    left: 50%; margin-left: -5px;
     bottom: 0; width: 9px; height: 7px;background: url(../Source/Images/map-icon.png) -26px 0 no-repeat; }

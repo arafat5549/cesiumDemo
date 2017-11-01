@@ -193,16 +193,18 @@ select{border: 1px solid #d3d9e6;margin: 10px 0 0 10px;width: 100px!important;he
 .sidenav-menu-box{ overflow-y: scroll; }
 .camera-list .name{ width: 100px; display: block; overflow:hidden; white-space: nowrap; }
 .data-table{ }
-.gkinfo-list{overflow:hidden;}
-.gkinfo-list li{float: left; width: 19.9% ;text-align: center; line-height: 30px;}
+.gkinfo-list{overflow:hidden; padding: 0 10px 10px;}
+.gkinfo-list li{float: left; width: 19.9% ;text-align: center; line-height: 26px;}
 .gkinfo-list li a{ font-size: 12px; font-weight: normal;  color: #666; text-decoration: none}
 .gkinfo-list .current{background: #60acfb}
 .gkinfo-list .current a{ color: #fff }
 
-.data-qj{ width: 169px; height: 31px; border: 1px solid #d5d8dc }
+.data-qj{ width: 164px; height: 31px; border: 1px solid #d5d8dc; padding-left: 5px; }
 .eventcount-box .title1{color: #666; font-size: 14px; font-weight: normal;}
 .eventcount-box .title2{padding: 0 10px; color: #666; font-size: 14px; }
 .eventcount-box p img{    vertical-align: -5px;}
 .event-num{font-size: 14px; color: #32b726; display: block; }
 
 .menu-list li{ white-space: nowrap; overflow:hidden; }
+.event-table{border-top: 1px solid #d0d5d8}
+.event-table tr:nth-child(1) td{ font-weight: bold }

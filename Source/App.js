@@ -542,7 +542,7 @@
         var latitude = Cesium.Math.toDegrees(cartographic.latitude);
         var longitude = Cesium.Math.toDegrees(cartographic.longitude);
         var alt = cartographic.height;
-        console.log(latitude+","+longitude+","+alt);
+        // console.log(latitude+","+longitude+","+alt);
         var x = {
             latitude: latitude,
             longitude:longitude,
@@ -588,37 +588,11 @@
                     var x  = cartesianToCartographic(itemSet[i].position.getValue(Cesium.JulianDate.now()));
                     //console.log(x);
                     moveCamera(
-                          new Cesium.Cartesian3.fromDegrees(x.longitude,x.latitude, 2631.082799425431) //52631.082799425431
+                          new Cesium.Cartesian3.fromDegrees(x.longitude,x.latitude-1, 72631.082799425431) //52631.082799425431
                     );
              }
          }
-         // sanmingPromise.then(function(dataSource) 
-         // {
-         //    var sanming_neighborhoodEntities = dataSource.entities.values;
-         //    for (var i = 0; i < sanming_neighborhoodEntities.length; i++) {
-         //        var sanming_entity = sanming_neighborhoodEntities[i];
-         //        var city_name= sanming_entity.name._value;
-         //        // console.log(sanming_entity.polygon)
-         //        if (Cesium.defined(sanming_entity.polygon) && name==city_name) {
-         //            // console.log(sanming_entity)
-         //            var sanming_polyPositions = sanming_entity.polygon.hierarchy.getValue(Cesium.JulianDate.now()).positions;
-         //            console.log(sanming_polyPositions.length)
-         //            var x  =cartesianToCartographic(sanming_polyPositions[0])
-
-                   
-         //            // var p = Cesium.Cartesian3.fromArray(sanming_polyPositions);
-         //            // console.log(p)
-
-         //            console.log("demo=",x.longitude, x.latitude,x);
-         //            moveCamera(
-         //                 new Cesium.Cartesian3.fromDegrees(x.longitude,x.latitude, 2631.082799425431) //52631.082799425431
-         //                ,new Cesium.HeadingPitchRoll.fromDegrees(7.1077496389876024807, -31.987223091598949054, 0.025883251314954971306));
-
-         //        }
-
-         //    }
-
-         // })
+        
 
     });
 

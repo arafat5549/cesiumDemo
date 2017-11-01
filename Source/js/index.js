@@ -70,17 +70,17 @@
             dataType: 'json',
             success: function(data) {
                 var message = data.message;
-                var tableHtml ='<div class="tab-con mapCamera-box" style="display:none">'+ 
+                var tableHtml ='<div class="tab-con mapCamera-box" style="display:none; height:600px;">'+ 
                     '<div class="hd"><input type="text" class="keywords"  placeholder="关键字" /> <a href="javascript:;" class="icon-search search-btn" > </a></div>\
-                    <div class="bd">\
+                    <div class="bd" >\
                     <table class="table-list camera-list" cellpadding="0" cellspacing="0">\
                         <tbody>\
                             <tr>\
-                                <td>序号</td><td>名称</td><td>地址</td><td>类型 </td><td>乡镇 </td><td>处理状况</td>\
+                                <td>序号</td><td>名称</td><td>地址</td><td>行政区域</td><td>管理单位 </td><td>定位</td>\
                             </tr>';
                 if(data.code == 1000) {
                     $.each(message, function(index , val){
-                        tableHtml +='<tr ><td>'+(index+1)+'</td><td>'+val.name+'</td><td>'+val.address+'</td><td>'+val.river+' </td><td>'+val.organization+' </td><td>'+val.remark+'</td>\</tr>' 
+                        tableHtml +='<tr ><td>'+(index+1)+'</td><td>'+val.name+'</td><td>'+val.address+'</td><td>'+val.river+' </td><td>'+val.organization+' </td><td><img src="../Source/Images/biao.png" style="    vertical-align: -5px;width: 51%;"/></td>\</tr>' 
                     })
                 }   
 
@@ -105,7 +105,7 @@
             dataType: 'json',
             success: function(data) {
                 var message = data.message;
-                var tableHtml ='<div class="tab-con gridmenber-box" style="display:none">'+ 
+                var tableHtml ='<div class="tab-con gridmenber-box" style="display:none;height:600px;">'+ 
                     '<div class="hd"><div class="search-box"><input type="text" class="keyword"  placeholder="关键字" /> <a class="button_pic  search-btn1"><i class="material-icons">search</i></a><a class="refresh-btn" href="javascript:;"><i class="material-icons refresh">refresh</i></a></div>'+
                     '</div>'+
                     '<div class="bd" data-sidenav >'+
@@ -250,9 +250,9 @@
             dataType: 'json',
             success: function(data) {
                 var message = data.message;
-                var tableHtml ='<div class="tab-con riverinfo-box"  >'+ 
+                var tableHtml ='<div class="tab-con riverinfo-box" style="height:600px;" >'+ 
                     '<div class="hd"><input type="text" class="keywords"  placeholder="关键字" /> <a href="javascript:;" class="icon-search search-btn" > </a></div>\
-                    <div class="bd" style=" max-height:700px;">\
+                    <div class="bd" >\
                     <table class="table-list camera-list" cellpadding="0" cellspacing="0">\
                         <tbody>\
                             <tr>\
@@ -344,9 +344,9 @@ function eventcount() {
         dataType: 'json',
         success: function(data) {
             var message = data.message;
-            var tableHtml ='<div class="tab-con eventcount-box" style="display:none" >'+ 
+            var tableHtml ='<div class="tab-con eventcount-box" style="display:none;height:600px;" >'+ 
                 '<div class="hd"> <span class="title1">时间选择：</span><input type="text" class="data-qj"  placeholder="关键字" /> <a href="javascript:;" class="icon-search search-btn" > </a></div>\
-                <div class="bd" style=" max-height:700px;"><p class="title2"><img src="../Source/Images/icon-loc.png" /> 三明市</p>\
+                <div class="bd" ><p class="title2"><img src="../Source/Images/icon-loc.png" /> 三明市</p>\
                 <ul class="gkinfo-list"  >';
             if(data.code == 1000) {
                 $.each(message, function(index , val){

@@ -44,7 +44,8 @@
         'image/ktx' : ['ktx'],
         'model/gltf+json' : ['gltf'],
         'model/gltf.binary' : ['bgltf', 'glb'],
-        'text/plain' : ['glsl']
+        'text/plain' : ['glsl'],
+        'image/jpeg' : ['jpg','jpeg'],
     });
 
     var app = express();
